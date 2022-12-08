@@ -3,8 +3,9 @@ name = "advent-2022"
 version = "0.1.0"
 description = ""
 authors = ["brent-moffit <72231013+brent-moffit@users.noreply.github.com>"]
-readme = "README.md"
-packages = [{include = "advent_2022"}]
+packages = [
+    { include = "d*/**/*.py" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
