@@ -1,5 +1,5 @@
 from collections.abc import Iterator
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from functools import cached_property
 from io import TextIOWrapper
 from operator import attrgetter

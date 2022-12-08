@@ -1,8 +1,8 @@
 from io import TextIOWrapper
 from pathlib import Path
 from typing import Callable
-from d2.strategy_decoders import GameRound, player_throw_decoder, outcome_decoder
 
+from d2.strategy_decoders import GameRound, outcome_decoder, player_throw_decoder
 
 StrategyDecoder = Callable[[str], GameRound]
 

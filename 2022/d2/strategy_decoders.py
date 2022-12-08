@@ -1,5 +1,6 @@
 from typing import Mapping
-from d2.game_round import Throw, Outcome, GameRound
+
+from d2.game_round import GameRound, Outcome, Throw
 
 PLAYER_THROW_MAPPING: Mapping[str, Throw] = {
     "X": Throw.ROCK,

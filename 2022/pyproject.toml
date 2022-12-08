@@ -3,23 +3,47 @@ name = "advent-2022"
 version = "0.1.0"
 description = ""
 authors = ["brent-moffit <72231013+brent-moffit@users.noreply.github.com>"]
-packages = [
-    { include = "d*/**/*.py" },
+packages = [{ include = "d*/**/*.py" }]
+
+[tool.poe.tasks]
+format = "black ."
+lint = "flake8 ."
+clean = [
+    { cmd = "autoflake --in-place --recursive ." },
+    { cmd = "isort ." },
+    { ref = "format" },
 ]
+
+[tool.black]
+target-version = ['py311']
+
+[tool.flake8]
+max-line-length = 88
+max-complexity = 18
+select = ['B', 'C', 'E', 'F', 'W', 'T4', 'B9']
+ignore = ['E203', 'E266', 'E501', 'W503', 'F403', 'F401']
+exclude = ['.git', '__pycache__', '__init__.py', '.mypy_cache', '.pytest_cache']
+
+[tool.isort]
+profile = "black"
+
+[tool.autoflake]
+remove-all-unused-imports = true
+ignore-init-module-imports = true
+ignore-pass-statements = true
 
 [tool.poetry.dependencies]
 python = "^3.11"
 more-itertools = "^9.0.0"
 
-[tool.isort]
-profile = "black"
-
 [tool.poetry.group.dev.dependencies]
 black = "^22.10.0"
 flake8 = "^6.0.0"
-autoflake8 = "^0.4.0"
 isort = "^5.10.1"
 mypy = "^0.991"
+poethepoet = "^0.16.5"
+autoflake = "^2.0.0"
+flake8-pyproject = "^1.2.2"
 
 [build-system]
 requires = ["poetry-core"]
